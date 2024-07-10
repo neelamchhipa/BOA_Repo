@@ -2,6 +2,8 @@ package com.boa.restcontroller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +21,9 @@ import com.boa.repo.StudentRepository;
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
+	
+	
+	private static final Logger log = LoggerFactory.getLogger(AdminController.class);
     private final AdminRepository adminRepository;
     private final PrfessorRepository prfessorRepository;
 
@@ -30,7 +35,9 @@ public class AdminController {
 
     @GetMapping  
     public List<Admin> getAllAdmin() {
-        return adminRepository.findAll();
+   	log.info("Get the admin details");
+ 	log.debug("Get all admins" +adminRepository.findAll().toString());
+      return adminRepository.findAll();
     }
 
     @PostMapping
