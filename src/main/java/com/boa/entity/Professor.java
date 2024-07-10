@@ -3,7 +3,7 @@ package com.boa.entity;
 import jakarta.persistence.Entity;
 
 @Entity
-public class Professor extends User {
+public class Professor {
 	private String department;
 
 	public String getDepartment() {
